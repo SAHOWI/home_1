@@ -42,6 +42,9 @@ config/*.local.*
 *.pem
 *.key
 
+# Local runtime state & personal planning data
+data/
+
 # Audio recordings & local AI model weights
 models/
 *.gguf

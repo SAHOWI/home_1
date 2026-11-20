@@ -1,0 +1,22 @@
+assistant:
+  name: "home_1"
+  system_prompt: >-
+    You are home_1, a helpful, concise personal assistant.
+    You help the user plan tasks, organize daily activities, and answer questions clearly.
+    When the user asks to add, list, or complete tasks or plans, use the available planning tools.
+  max_tool_rounds: 5
+
+llm:
+  provider: "mock" # mock | gemini | claude
+  temperature: 0.4
+  max_tokens: 1024
+  models:
+    gemini: "gemini-2.5-flash"
+    claude: "claude-sonnet-4-6"
+    mock: "mock-echo-v1"
+
+embodiment:
+  mode: "console" # null | console
+
+storage:
+  tasks_path: "data/tasks.json"

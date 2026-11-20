@@ -52,12 +52,38 @@ For the full hardware comparison, microphone array trade-offs, and embodiment ro
 
 ---
 
+## Quick Start (Phase 1 — Software CLI)
+
+Requires Python 3.11+ and [`uv`](https://docs.astral.sh/uv/).
+
+```bash
+# 1. Install dependencies and create the virtual environment
+uv sync
+
+# 2. Run immediately offline using the built-in mock provider
+uv run home_1 --provider mock
+
+# 3. Configure API keys for Google Gemini or Anthropic Claude
+cp .env.example .env
+# Edit .env and set GEMINI_API_KEY and/or ANTHROPIC_API_KEY
+
+# 4. Run with Gemini or Claude
+uv run home_1 --provider gemini
+uv run home_1 --provider claude
+
+# 5. Run tests & linter
+uv run pytest
+uv run ruff check .
+```
+
+---
+
 ## Roadmap
 
-- **Phase 0 — Project Foundation** *(current)*
+- **Phase 0 — Project Foundation** *(done)*
   - Repository structure, Git setup, architecture design, and Pi CM4 hardware/audio specification.
-- **Phase 1 — Software-Only Core**
-  - Python packaging (`pyproject.toml`), configuration management, text/CLI loop, Google Gemini & Anthropic Claude adapters, and initial planning tools.
+- **Phase 1 — Software-Only Core** *(active)*
+  - Python packaging (`pyproject.toml` + `uv`), YAML/`.env` configuration, interactive CLI, Google Gemini & Anthropic Claude adapters (plus offline mock), embodiment state interface, and local planning tools.
 - **Phase 2 — Raspberry Pi CM4 Voice Interface**
   - Local wake-word + VAD + STT/TTS pipeline on Pi CM4, microphone array & speaker integration, and first home automation tool/MCP adapters.
 - **Phase 3 — Local & Hybrid LLM Support**
